@@ -1,8 +1,7 @@
 'use strict';
 
-
 var mongoose = require('mongoose'),
-  Contact = mongoose.model('Contacts');
+Contact = mongoose.model('Contacts');
 
 exports.list_all_contacts = function(req, res) {
   Contact.find({}, function(err, contact) {
@@ -22,7 +21,7 @@ exports.create_a_contact = function(req, res) {
 };
 
 exports.read_a_contact = function(req, res) {
-  Contact.findById(req.params.contactId, function(err, contact) {
+  Contact.findOne({ _id: req.params.contactId}, function(err, contact) {
     if (err)
       res.send(err);
     res.json(contact);
@@ -38,7 +37,7 @@ exports.update_a_contact = function(req, res) {
 };
 
 exports.delete_a_contact = function(req, res) {
-  Contact.remove({
+  Contact.findOneAndDelete({
     _id: req.params.contactId
   }, function(err, contact) {
     if (err)

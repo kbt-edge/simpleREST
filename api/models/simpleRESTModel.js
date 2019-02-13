@@ -34,7 +34,7 @@ var ContactSchema = new Schema({
   },
   address2: {
 	  type: String,
-	  default: "noone"
+	  default: ""
   },
   city: {
 	  type: String,
@@ -50,7 +50,7 @@ var ContactSchema = new Schema({
   },
   country: {
 	  type: String,
-	  default: "noone"
+	  default: "US"
   },
   last_touch_date: {
     type: Date,

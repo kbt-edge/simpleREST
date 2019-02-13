@@ -10,6 +10,6 @@ module.exports = function(app) {
 
   app.route('/contacts/:contactId')
     .get(simpleREST.read_a_contact)
-    .put(simpleREST.update_a_contact)
+    .patch(simpleREST.update_a_contact)
     .delete(simpleREST.delete_a_contact);
 };
